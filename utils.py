@@ -14,8 +14,8 @@ def load_yaml(path):
 def record(path, seconds=2):
   CHUNK = 1024
   FORMAT = pyaudio.paInt16
-  CHANNELS = 2
-  RATE = 22050
+  CHANNELS = 1
+  RATE = 22050 # 44010
   RECORD_SECONDS = seconds
   WAVE_OUTPUT_FILENAME = path
 
@@ -86,7 +86,7 @@ def get_peaks_count(x, sr, threshold=20, frequency_band=[330, 340]):
   # print('window size in seconds: {} of {}'.format(seconds_window_size, seconds_total))
 
   x = [] # time series in seconds
-  y = [] # frequency sum between 3300 and 3400
+  y = [] # frequency sum between frequency_band
 
   for i in range(X.shape[1]):
       x.append(i*seconds_window_size)

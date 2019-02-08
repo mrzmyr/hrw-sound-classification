@@ -4,7 +4,6 @@ from time import time
 import librosa
 import utils
 
-from colorama import Fore, Back, Style
 from twilio.rest import Client
 
 config = utils.load_yaml('config.yml')
@@ -26,7 +25,7 @@ receivers = ['+491731586539']
 while True:
   # Print recording message in appropriate colors
   print()
-  print(Fore.RED + '●', Style.RESET_ALL, 'Recording… ')
+  print('Recording… ')
   print()
 
   # save microphone input to wav file
@@ -62,7 +61,7 @@ while True:
       )
 
       # Log when client gets contacted
-      print(Fore.GREEN + 'Send message:')
+      print('Send message:')
       print('{} to {}: {}'.format(config['twilio']['phone_number'], phone_number, config['message']))
 
     # Update timestamp when message was sent
